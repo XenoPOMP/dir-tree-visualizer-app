@@ -1,11 +1,11 @@
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 import cn from 'classnames';
-import { Inter } from 'next/font/google';
+import { Geologica } from 'next/font/google';
 
 import '../app/globals.scss';
 
-const mainFont = Inter({
+const mainFont = Geologica({
   subsets: ['latin', 'cyrillic'],
 });
 
