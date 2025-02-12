@@ -12,6 +12,7 @@ describe('Root layout test', () => {
   injectMocks(() => {
     vi.mock('next/font/google', () => ({
       Inter: FONT_MOCK,
+      Geologica: FONT_MOCK,
     }));
   });
 

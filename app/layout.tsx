@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Geologica } from 'next/font/google';
 import type { ReactNode } from 'react';
 
 import { CoreLayout, Providers } from '@/components/layout';
@@ -10,7 +10,7 @@ import { APP_NAME } from '@app/constants';
 
 import './globals.scss';
 
-const mainFont = Inter({
+const mainFont = Geologica({
   subsets: ['latin', 'cyrillic'],
 });
 
