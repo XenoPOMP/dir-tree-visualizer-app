@@ -9,8 +9,8 @@ type Theme = Defined<Defined<Config['theme']>['extend']>;
 export const lightTheme = {
   colors: {
     primary: {
-      bg: '#FFF',
-      font: '#000',
+      bg: '#0d1117',
+      font: '#FFF',
     },
   },
 } satisfies Theme;

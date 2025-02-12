@@ -1,10 +1,3 @@
-import type { CustomTheme } from '../index.ts';
+import { type CustomTheme, lightTheme } from '../index.ts';
 
-export const darkTheme: CustomTheme = {
-  colors: {
-    primary: {
-      bg: '#0d1117',
-      font: '#FFF',
-    },
-  },
-};
+export const darkTheme: CustomTheme = lightTheme;
