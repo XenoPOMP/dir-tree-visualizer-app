@@ -1,0 +1,16 @@
+@config "../.config/tailwind.config.ts";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-size: 20px;
+}
+
+// Comment line below if design system is not needed
+@import "src/styles/design-system";
+
+body {
+  @apply bg-primary-bg text-primary-font;
+}
