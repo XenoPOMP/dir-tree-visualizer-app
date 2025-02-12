@@ -1,0 +1,7 @@
+.ctrl {
+  @apply hover:bg-block-hover transition-colors;
+
+  &:active, &.active, &[data-is-active] {
+    @apply bg-block-secondary;
+  }
+}
