@@ -23,26 +23,8 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
        * Default object entries.
        * Also removes top-level entries with empty names.
        */
-      let filteredEntries = Object.entries(entries).filter(
+      const filteredEntries = Object.entries(entries).filter(
         ([key]) => key !== '',
-      );
-
-      filteredEntries = filteredEntries.sort(
-        ([name, value], [nextName, nextValue]) => {
-          const isFirstDir = typeof value === 'object' || value === 'directory';
-          const isSecondDir =
-            typeof nextValue === 'object' || nextValue === 'directory';
-
-          if (value === 'file' && isSecondDir) {
-            return 1;
-          }
-
-          if (isFirstDir && nextValue === 'file') {
-            return -1;
-          }
-
-          return 0;
-        },
       );
 
       // Form object from sorted entries

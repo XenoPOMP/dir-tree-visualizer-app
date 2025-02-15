@@ -9,18 +9,18 @@ export interface IPathsStore {
 
 export const usePathsStore = create<IPathsStore>((set, get) => ({
   paths: [
-    './src/a',
+    './src/a/',
     './src/c/sigma.txt',
-    './src/b',
-    './src/b/alpha',
-    './src/b/beta',
+    './src/b/',
+    './src/b/alpha/',
+    './src/b/beta/',
     './src/c/content.md',
     './src/next.config.ts',
     './src/main/page.tsx',
     './src/main/app/page.tsx',
     './src/components/ui/Header.tsx',
     './src/package.json',
-    './src/tests',
+    './src/tests/',
   ],
   clear: () =>
     set({
