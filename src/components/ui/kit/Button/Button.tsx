@@ -7,9 +7,9 @@ import { buttonVariants } from './Button.variants';
 
 export const Button = slotable<'button', ButtonProps>(
   'button',
-  ({ Comp, className, variant, ...props }) => (
+  ({ Comp, className, variant, square, ...props }) => (
     <Comp
-      className={cn(buttonVariants({ variant }), className)}
+      className={cn(buttonVariants({ variant, square }), className)}
       {...props}
     />
   ),

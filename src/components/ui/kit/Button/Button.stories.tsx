@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { ImageDown } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from './Button';
@@ -23,6 +24,23 @@ const sharedProps = {
 export const Default: Story = {
   args: {
     ...sharedProps,
+  },
+};
+
+export const Control: Story = {
+  args: {
+    ...sharedProps,
+    variant: 'control',
+  },
+};
+
+export const AppIcon: Story = {
+  name: 'UI icon',
+  args: {
+    ...sharedProps,
+    variant: 'control',
+    square: true,
+    children: <ImageDown />,
   },
 };
 

@@ -1,5 +1,5 @@
 .btn {
-  .ctrl {
+  &.ctrl {
     @apply transition-colors;
 
     &:hover {
