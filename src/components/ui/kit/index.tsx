@@ -10,4 +10,3 @@ export * from './DicebearImage/DicebearImage';
 export * from './Sidebar/Sidebar';
 export * from './Logo/Logo';
 export * from './Badge/Badge';
-export * from './ControlButton/ControlButton';
