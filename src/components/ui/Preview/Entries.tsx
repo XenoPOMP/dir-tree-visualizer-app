@@ -25,29 +25,23 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
        */
       let sortedEntries = Object.entries(entries).filter(([key]) => key !== '');
 
-      sortedEntries = sortedEntries
-        // Sort alphabetically
-        .sort(([name], [nextName]) => {
-          if (name === nextName) {
-            return 0;
-          }
+      sortedEntries = sortedEntries.sort(
+        ([name, value], [nextName, nextValue]) => {
+          const isFirstDir = typeof value === 'object' || value === 'directory';
+          const isSecondDir =
+            typeof nextValue === 'object' || nextValue === 'directory';
 
-          const sorted = [name, nextName].sort();
-
-          if (sorted.at(0) === name) {
+          if (value === 'file' && isSecondDir) {
             return 1;
           }
 
-          return -1;
-        })
-        // Move folders to top
-        .sort(([_, value]) => {
-          if (typeof value === 'object' || value === 'directory') {
+          if (isFirstDir && nextValue === 'file') {
             return -1;
           }
 
-          return 1;
-        });
+          return 0;
+        },
+      );
 
       // Form object from sorted entries
       return Object.fromEntries(sortedEntries);
