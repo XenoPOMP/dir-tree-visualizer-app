@@ -23,9 +23,11 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
        * Default object entries.
        * Also removes top-level entries with empty names.
        */
-      let sortedEntries = Object.entries(entries).filter(([key]) => key !== '');
+      let filteredEntries = Object.entries(entries).filter(
+        ([key]) => key !== '',
+      );
 
-      sortedEntries = sortedEntries.sort(
+      filteredEntries = filteredEntries.sort(
         ([name, value], [nextName, nextValue]) => {
           const isFirstDir = typeof value === 'object' || value === 'directory';
           const isSecondDir =
@@ -44,7 +46,7 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
       );
 
       // Form object from sorted entries
-      return Object.fromEntries(sortedEntries);
+      return Object.fromEntries(filteredEntries);
     },
     [entries],
   );
