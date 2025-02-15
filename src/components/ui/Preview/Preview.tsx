@@ -3,19 +3,15 @@
 import cn from 'classnames';
 import type { FC } from 'react';
 
-import { usePathsStore } from '@/zustand';
+import { usePreview } from './Preview.hook';
+import styles from './Preview.module.scss';
 
 export const Preview: FC<unknown> = () => {
-  const paths = usePathsStore(s => s.paths);
+  const items = usePreview();
 
   return (
-    <div
-      className={cn(
-        'whitespace-break-spaces',
-        'w-max rounded-[.6rem] border-[1px] border-primary-border p-3',
-      )}
-    >
-      {paths.join('\n')}
-    </div>
+    <article className={cn('whitespace-break-spaces', styles.previewBlock)}>
+      {items}
+    </article>
   );
 };
