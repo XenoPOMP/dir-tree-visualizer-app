@@ -3,7 +3,7 @@ to: __tests__/unit/components/<%= h.changeCase.paramCase(name) %>/component.test
 ---
 import { describe, test } from 'vitest';
 
-import { <%= h.changeCase.pascalCase(name) %> } from '@/components/ui/kit';
+import { <%= h.changeCase.pascalCase(name) %> } from '@/components/ui';
 
 import { assertRendering } from '@test/assets';
 
