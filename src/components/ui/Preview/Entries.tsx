@@ -40,16 +40,26 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
     [entries],
   );
 
+  // const folderCls = 'flex flex-col gap-[calc(var(--p14)*0.3571428571)]';
+  // const folderCls = 'flex flex-col gap-[calc(var(--p14)*0.2857142857)]';
+  const folderCls = '';
+
   return (
     <div
-      className={cn({
-        'ml-[calc(var(--p14)*1.5714285714)]': hasIntend,
-      })}
+      className={cn(
+        {
+          'ml-[calc(var(--p14)*1.5714285714)]': hasIntend,
+        },
+        folderCls,
+      )}
     >
       {Object.entries(filterEntries(entries) || {}).map(([key, value], idx) => {
         if (typeof value === 'object') {
           return (
-            <div key={`entry-${idx}`}>
+            <div
+              key={`entry-${idx}`}
+              className={cn(folderCls)}
+            >
               <FolderLabel variant='folder'>{key.toString()}</FolderLabel>
 
               <Entries
