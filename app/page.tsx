@@ -2,7 +2,7 @@ import cn from 'classnames';
 import type { Metadata } from 'next';
 
 import { MainLayout } from '@/components/layout';
-import { Spacer } from '@/components/ui';
+import { ExportImageButton, Spacer } from '@/components/ui';
 import { Heading } from '@/components/ui/kit';
 import { generateStaticMetadata } from '@/utils/seo';
 
@@ -20,9 +20,11 @@ export default function Home() {
       >
         <Heading level={2}>Preview</Heading>
 
-        <Spacer />
+        <Spacer className={cn('min-w-[--p-level-3]')} />
 
-        <section>Buttons</section>
+        <section className={cn('flex items-center gap-[--p-level-4]')}>
+          <ExportImageButton />
+        </section>
       </MainLayout.Header>
 
       <main className={cn(styles.mainPage)}>index page</main>
