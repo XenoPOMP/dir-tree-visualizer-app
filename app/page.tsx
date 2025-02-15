@@ -27,7 +27,9 @@ export default function Home() {
         </section>
       </MainLayout.Header>
 
-      <main className={cn(styles.mainPage)}>index page</main>
+      <MainLayout.Body className={cn(styles.mainPage, 'p-4')}>
+        index page
+      </MainLayout.Body>
     </MainLayout>
   );
 }

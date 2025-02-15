@@ -1,0 +1,20 @@
+.wrapper {
+  display: grid;
+  grid-template-areas:
+          "header"
+          "main"
+  ;
+  grid-template-rows: max-content 1fr;
+
+  &:has(& > aside.main) {
+    grid-template-areas:
+          "sidebar header"
+          "sidebar main"
+    ;
+    grid-template-columns: max-content 1fr;
+  }
+
+  aside.main {
+    grid-area: sidebar;
+  }
+}
