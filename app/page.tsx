@@ -2,7 +2,7 @@ import cn from 'classnames';
 import type { Metadata } from 'next';
 
 import { MainLayout } from '@/components/layout';
-import { ExportImageButton, Spacer } from '@/components/ui';
+import { ExportImageButton, Preview, Spacer } from '@/components/ui';
 import { Heading } from '@/components/ui/kit';
 import { generateStaticMetadata } from '@/utils/seo';
 
@@ -27,8 +27,8 @@ export default function Home() {
         </section>
       </MainLayout.Header>
 
-      <MainLayout.Body className={cn(styles.mainPage, 'p-4')}>
-        index page
+      <MainLayout.Body className={cn(styles.mainPage, 'overflow-auto', 'p-4')}>
+        <Preview />
       </MainLayout.Body>
     </MainLayout>
   );
