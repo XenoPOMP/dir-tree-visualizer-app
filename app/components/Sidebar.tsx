@@ -18,7 +18,11 @@ import {
 
 export const Sidebar: FC<unknown> = () => {
   return (
-    <MainLayout.Sidebar>
+    <MainLayout.Sidebar
+      style={{
+        width: 'calc(var(--p-level-4) * 2 + 260px)',
+      }}
+    >
       <MainLayout.Header
         className={cn('flex select-none items-center justify-start px-4 py-5')}
       >
