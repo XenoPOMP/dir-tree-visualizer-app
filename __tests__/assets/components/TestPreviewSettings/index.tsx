@@ -10,6 +10,7 @@ export const createPreviewSettingsTest = () => {
 
   const out = screen.getByTestId('output');
   const upd = screen.getByTestId<HTMLButtonElement>('upd');
+  const res = screen.getByTestId<HTMLButtonElement>('reset');
 
   function getAttr(attr: string, fallback?: string): string | undefined {
     return out.getAttribute(attr) ?? fallback;
@@ -29,8 +30,13 @@ export const createPreviewSettingsTest = () => {
     fireEvent.click(upd);
   };
 
+  const reset = () => {
+    fireEvent.click(res);
+  };
+
   return {
     getSettings,
     set,
+    reset,
   };
 };

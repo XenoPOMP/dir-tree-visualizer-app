@@ -3,7 +3,7 @@ import { type ComponentRef, type FC, useRef } from 'react';
 import { type IDataSettings, usePreviewSettings } from '@/zustand';
 
 export const Component: FC<unknown> = () => {
-  const { set, ...preview } = usePreviewSettings();
+  const { set, reset, ...preview } = usePreviewSettings();
   const ref = useRef<ComponentRef<'div'>>(null);
 
   const update = () => {
@@ -31,6 +31,13 @@ export const Component: FC<unknown> = () => {
         onClick={update}
       >
         Upd
+      </button>
+
+      <button
+        data-testid='reset'
+        onClick={reset}
+      >
+        Res
       </button>
     </div>
   );

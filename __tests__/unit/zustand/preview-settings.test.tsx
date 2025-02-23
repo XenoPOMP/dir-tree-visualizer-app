@@ -21,4 +21,15 @@ describe('Preview settings store', () => {
 
     expect(getSettings().folderIconSize).toBe(5);
   });
+
+  test('Reset fn works', () => {
+    const { getSettings, set, reset } = createPreviewSettingsTest();
+
+    set({
+      folderIconSize: 5,
+    });
+    reset();
+
+    expect(getSettings().folderIconSize).toBe(16);
+  });
 });

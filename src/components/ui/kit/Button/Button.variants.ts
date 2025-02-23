@@ -14,6 +14,11 @@ export const buttonVariants = cva(
         control: styles.ctrl,
       },
 
+      instant: {
+        true: styles.instant,
+        false: '',
+      },
+
       square: {
         true: 'aspect-square flex-center p-[.2rem]',
         false: 'px-[.3rem] py-[.2rem]',
@@ -23,6 +28,7 @@ export const buttonVariants = cva(
     defaultVariants: {
       variant: 'default',
       square: false,
+      instant: false,
     },
   },
 );

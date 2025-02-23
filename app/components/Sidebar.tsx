@@ -6,7 +6,13 @@ import { Heading } from '@/components/ui/kit';
 
 import parentStyles from '@app/main-page.module.scss';
 
-import { ChangePadding, IconSize, ShowGuides } from './sidebar-form';
+import {
+  ChangePadding,
+  Divider,
+  IconSize,
+  ResetSettings,
+  ShowGuides,
+} from './sidebar-form';
 
 export const Sidebar: FC<unknown> = () => {
   return (
@@ -19,13 +25,17 @@ export const Sidebar: FC<unknown> = () => {
 
       <section
         className={cn(
-          'flex flex-col gap-5 p-4 text-14',
+          'flex flex-col gap-[.5rem] p-4 text-14',
           parentStyles.sidebarFieldGroup,
         )}
       >
         <IconSize />
         <ChangePadding />
         <ShowGuides />
+
+        <Divider />
+
+        <ResetSettings />
       </section>
     </MainLayout.Sidebar>
   );

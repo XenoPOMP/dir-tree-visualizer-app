@@ -13,14 +13,20 @@ type Payload =
 
 interface IMethods {
   set: (partial: Payload) => void;
+  reset: () => void;
 }
 
 export type PreviewSettings = IDataSettings & IMethods;
 
-/** Setup preview image settings through all app. */
-export const usePreviewSettings = create<PreviewSettings>(set => ({
+const defaults: IDataSettings = {
   folderIconSize: 16,
   padding: 24,
   showFolderGuides: true,
+};
+
+/** Setup preview image settings through all app. */
+export const usePreviewSettings = create<PreviewSettings>(set => ({
+  ...structuredClone(defaults),
   set,
+  reset: () => set({ ...structuredClone(defaults) }),
 }));

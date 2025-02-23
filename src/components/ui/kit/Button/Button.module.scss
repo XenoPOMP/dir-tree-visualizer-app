@@ -2,7 +2,7 @@
   &.ctrl {
     @apply transition-colors;
 
-    &:hover {
+    &:hover, &.instant {
       @apply bg-block-hover;
     }
 
