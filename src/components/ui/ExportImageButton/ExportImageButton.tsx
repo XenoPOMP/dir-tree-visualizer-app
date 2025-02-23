@@ -15,19 +15,23 @@ export const ExportImageButton: FC<IPreviewRef> = ({ previewRef }) => {
     ref: previewRef,
   });
 
+  const onClick = () => {
+    setIsLoading(true);
+
+    takeScreenshot()
+      .then(() => {})
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   return (
     <>
       <Button
         variant='control'
         square
         className={cn('text-[--heading-2] disabled:hover:bg-block-hover')}
-        onClick={() => {
-          setIsLoading(true);
-
-          takeScreenshot().then(() => {
-            setIsLoading(false);
-          });
-        }}
+        onClick={onClick}
         disabled={isLoading}
       >
         {!isLoading ? <ImageDown size='1em' /> : <Loading variant='circle' />}
