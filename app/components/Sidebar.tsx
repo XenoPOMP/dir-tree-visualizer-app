@@ -9,6 +9,7 @@ import parentStyles from '@app/main-page.module.scss';
 import {
   ChangePadding,
   Divider,
+  GetPaths,
   IconSize,
   ResetSettings,
   ShowGitIgnored,
@@ -30,6 +31,10 @@ export const Sidebar: FC<unknown> = () => {
           parentStyles.sidebarFieldGroup,
         )}
       >
+        <GetPaths />
+
+        <Divider />
+
         <IconSize />
         <ChangePadding />
         <ShowGitIgnored />

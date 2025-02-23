@@ -10,7 +10,12 @@
     "fs:default",
     {
       "identifier": "fs:write-all",
-      "allow": [{ "path": "$DOWNLOAD/*.png" }]
-    }
+      "allow": [
+        {
+          "path": "$DOWNLOAD/*.png"
+        }
+      ]
+    },
+    "dialog:default"
   ]
 }
