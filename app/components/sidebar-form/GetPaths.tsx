@@ -28,6 +28,16 @@ export const GetPaths: FC<unknown> = () => {
       path: rootFolder,
       hide_git_ignored: true,
     }).then(data => {
+      const filtered = data
+        .map(d =>
+          d.replace(new RegExp(`^${rootFolder}`), '').replace(/^\//, ''),
+        )
+        .filter(i => i !== '')
+        .map(i => `./${i}`);
+
+      // eslint-disable-next-line no-console
+      console.log(filtered);
+
       setPaths(data);
     });
   }, [hideGitIgnored, rootFolder]);
