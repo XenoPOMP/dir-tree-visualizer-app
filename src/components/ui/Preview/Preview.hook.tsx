@@ -1,5 +1,6 @@
 'use client';
 
+import cn from 'classnames';
 import set from 'lodash.set';
 import { type ReactNode, useMemo } from 'react';
 import type { RecursiveKeyValuePair } from 'tailwindcss/types/config';
@@ -38,6 +39,12 @@ export const usePreview = (): ReactNode => {
 
   return (
     <>
+      {paths.length === 0 && (
+        <span className={cn('text-[14px] italic text-primary-font/75')}>
+          Empty
+        </span>
+      )}
+
       <Entries entries={formatted} />
     </>
   );
