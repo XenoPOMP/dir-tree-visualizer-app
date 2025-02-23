@@ -3,6 +3,7 @@
 import cn from 'classnames';
 import { ImageDown } from 'lucide-react';
 import { type FC, useState } from 'react';
+import { toast } from 'sonner';
 import useScreenshot from 'use-screenshot-hook';
 
 import { Button, Loading } from '@/components/ui/kit';
@@ -19,7 +20,9 @@ export const ExportImageButton: FC<IPreviewRef> = ({ previewRef }) => {
     setIsLoading(true);
 
     takeScreenshot()
-      .then(() => {})
+      .then(() => {
+        toast('Saved screenshot to Downloads');
+      })
       .finally(() => {
         setIsLoading(false);
       });
