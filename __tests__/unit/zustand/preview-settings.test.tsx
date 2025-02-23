@@ -1,10 +1,9 @@
 import { cleanup } from '@testing-library/react';
-import { afterEach, describe, test } from 'vitest';
+import { afterEach, describe, expect, test } from 'vitest';
 
 import { DEFAULT_SELECTOR, usePreviewSettings } from '@/zustand';
 
-import { assertHookRendering } from '@test/assets';
-import { createPreviewSettingsTest } from '@test/assets/components/TestPreviewSettings';
+import { assertHookRendering, createPreviewSettingsTest } from '@test/assets';
 
 describe('Preview settings store', () => {
   afterEach(() => cleanup());
@@ -14,6 +13,12 @@ describe('Preview settings store', () => {
   });
 
   test('Setter fn works', () => {
-    createPreviewSettingsTest();
+    const { getSettings, set } = createPreviewSettingsTest();
+
+    set({
+      folderIconSize: 5,
+    });
+
+    expect(getSettings().folderIconSize).toBe(5);
   });
 });

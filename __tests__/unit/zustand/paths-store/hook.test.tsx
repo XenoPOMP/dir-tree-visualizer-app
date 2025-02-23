@@ -3,8 +3,11 @@ import { afterEach, describe, expect, test } from 'vitest';
 
 import { DEFAULT_SELECTOR, usePathsStore } from '@/zustand';
 
-import { assertHookRendering, assertNotThrowing } from '@test/assets';
-import { createPathsStoreTest } from '@test/assets/components';
+import {
+  assertHookRendering,
+  assertNotThrowing,
+  createPathsStoreTest,
+} from '@test/assets';
 
 describe('Paths store', () => {
   afterEach(() => cleanup());

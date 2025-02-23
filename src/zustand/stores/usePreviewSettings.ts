@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-interface IDataSettings {
+export interface IDataSettings {
   folderIconSize: number;
   padding: number;
   showFolderGuides: boolean;
