@@ -3,6 +3,7 @@ import { Geologica } from 'next/font/google';
 import type { ReactNode } from 'react';
 
 import { CoreLayout, Providers } from '@/components/layout';
+import { CustomToaster } from '@/components/ui';
 import { env } from '@/utils/env';
 import { generateOpenGraph } from '@/utils/seo';
 
@@ -52,6 +53,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       suppressHydrationWarning
     >
       <body className={mainFont.className}>
+        <CustomToaster />
+
         <Providers>
           <CoreLayout>{children}</CoreLayout>
         </Providers>
