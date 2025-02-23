@@ -1,6 +1,5 @@
 'use client';
 
-import cn from 'classnames';
 import { orderBy } from 'natural-orderby';
 import { type FC, useCallback } from 'react';
 import type { ArrayType } from 'xenopomp-essentials';
@@ -60,11 +59,8 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
     [entries],
   );
 
-  const folderCls = '';
-
   return (
     <div
-      className={cn(folderCls)}
       style={{
         marginLeft: hasIntend ? '14px' : undefined,
       }}
@@ -72,10 +68,7 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
       {Object.entries(filterAndSort(entries) || {}).map(([key, value], idx) => {
         if (typeof value === 'object') {
           return (
-            <div
-              key={`entry-${idx}`}
-              className={cn(folderCls)}
-            >
+            <div key={`entry-${idx}`}>
               <FolderLabel variant='folder'>{key.toString()}</FolderLabel>
 
               <Entries
