@@ -18,13 +18,17 @@ export const lightTheme = {
     block: {
       primary: '#98C7DC',
       secondary: '#206380',
-      hover: '#0F1A21',
+      hover: '#263943',
     },
     preview: {
       dark: {
         icon: '#98C7DC',
         font: '#EDF2F5',
       },
+    },
+    check: {
+      bg: '#263942',
+      mark: '#FFFFFF',
     },
   },
 } satisfies Theme;
