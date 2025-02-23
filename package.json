@@ -61,6 +61,7 @@
     "typescript": "^5.7.3",
     "use-clipboard-copy": "^0.2.0",
     "use-debounce": "^10.0.4",
+    "use-react-screenshot": "^4.0.0",
     "zod": "^3.24.1",
     "zustand": "^5.0.2"
   },
@@ -87,6 +88,7 @@
     "eslint": "^9.20.0",
     "eslint-config-xeno": "^2.0.3-rc.3",
     "esno": "^4.8.0",
+    "html2canvas": "^1.4.1",
     "husky": "^9.1.7",
     "hygen": "^6.2.11",
     "jsdom": "^25.0.1",
