@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { ImageDown } from 'lucide-react';
 import type { FC } from 'react';
 
@@ -8,8 +9,9 @@ export const ExportImageButton: FC<unknown> = () => {
     <Button
       variant='control'
       square
+      className={cn('text-[--heading-2]')}
     >
-      <ImageDown />
+      <ImageDown size='1em' />
     </Button>
   );
 };
