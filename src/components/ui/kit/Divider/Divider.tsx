@@ -1,11 +1,10 @@
 import cn from 'classnames';
 import type { FC } from 'react';
 
-import { DEFAULT_SELECTOR, usePreviewSettings } from '@/zustand';
+import { usePreviewSettings } from '@/zustand';
 
 export const Divider: FC<unknown> = () => {
-  const { folderIconSize, showFolderGuides } =
-    usePreviewSettings(DEFAULT_SELECTOR);
+  const { folderIconSize, showFolderGuides } = usePreviewSettings();
 
   return (
     <>

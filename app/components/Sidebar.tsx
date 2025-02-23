@@ -8,7 +8,7 @@ import { Heading } from '@/components/ui/kit';
 import { usePreviewSettings } from '@/zustand';
 
 export const Sidebar: FC<unknown> = () => {
-  const set = usePreviewSettings(s => s.set);
+  const set = usePreviewSettings();
 
   return (
     <MainLayout.Sidebar>

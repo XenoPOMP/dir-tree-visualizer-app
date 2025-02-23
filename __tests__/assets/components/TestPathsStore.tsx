@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { type ComponentRef, type FC, useEffect, useRef } from 'react';
 
-import { DEFAULT_SELECTOR, usePathsStore } from '@/zustand';
+import { usePathsStore } from '@/zustand';
 
 /** Parses data-paths from element. */
 function getPathsFromAttr<E extends HTMLElement>(elem: E): string[] {
@@ -14,7 +14,7 @@ function getPathsFromAttr<E extends HTMLElement>(elem: E): string[] {
 }
 
 const TestPathsStore: FC<unknown> = () => {
-  const { paths, clear, set } = usePathsStore(DEFAULT_SELECTOR);
+  const { paths, clear, set } = usePathsStore();
   const setterRef = useRef<ComponentRef<'button'>>(null);
 
   useEffect(() => {

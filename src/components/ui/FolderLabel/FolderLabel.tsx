@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FileText, Folder } from 'lucide-react';
 import type { VariableFC } from 'xenopomp-essentials';
 
-import { DEFAULT_SELECTOR, usePreviewSettings } from '@/zustand';
+import { usePreviewSettings } from '@/zustand';
 
 import {
   type FolderLabelVariantsType,
@@ -14,7 +14,7 @@ export const FolderLabel: VariableFC<
   { children?: string } & FolderLabelVariantsType,
   'children'
 > = ({ className, children, variant, ...props }) => {
-  const { folderIconSize } = usePreviewSettings(DEFAULT_SELECTOR);
+  const { folderIconSize } = usePreviewSettings();
 
   return (
     <div

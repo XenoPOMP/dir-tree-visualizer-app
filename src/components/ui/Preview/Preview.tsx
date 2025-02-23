@@ -3,14 +3,14 @@
 import cn from 'classnames';
 import type { FC } from 'react';
 
-import { DEFAULT_SELECTOR, usePreviewSettings } from '@/zustand';
+import { usePreviewSettings } from '@/zustand';
 
 import { usePreview } from './Preview.hook';
 import styles from './Preview.module.scss';
 
 export const Preview: FC<unknown> = () => {
   const items = usePreview();
-  const { padding } = usePreviewSettings(DEFAULT_SELECTOR);
+  const { padding } = usePreviewSettings();
 
   return (
     <article

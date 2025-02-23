@@ -1,7 +1,7 @@
 import { cleanup } from '@testing-library/react';
 import { afterEach, describe, expect, test } from 'vitest';
 
-import { DEFAULT_SELECTOR, usePathsStore } from '@/zustand';
+import { usePathsStore } from '@/zustand';
 
 import {
   assertHookRendering,
@@ -13,7 +13,7 @@ describe('Paths store', () => {
   afterEach(() => cleanup());
 
   test('It renders', () => {
-    assertHookRendering(() => usePathsStore(DEFAULT_SELECTOR));
+    assertHookRendering(() => usePathsStore());
   });
 
   test('Clear func works', () => {

@@ -1,13 +1,9 @@
 import { type ComponentRef, type FC, useRef } from 'react';
 
-import {
-  DEFAULT_SELECTOR,
-  type IDataSettings,
-  usePreviewSettings,
-} from '@/zustand';
+import { type IDataSettings, usePreviewSettings } from '@/zustand';
 
 export const Component: FC<unknown> = () => {
-  const { set, ...preview } = usePreviewSettings(DEFAULT_SELECTOR);
+  const { set, ...preview } = usePreviewSettings();
   const ref = useRef<ComponentRef<'div'>>(null);
 
   const update = () => {
