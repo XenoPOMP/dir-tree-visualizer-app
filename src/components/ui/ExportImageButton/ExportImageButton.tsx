@@ -1,5 +1,6 @@
 'use client';
 
+import { BaseDirectory, writeFile } from '@tauri-apps/plugin-fs';
 import cn from 'classnames';
 import { ImageDown } from 'lucide-react';
 import { type FC, useState } from 'react';
@@ -19,13 +20,31 @@ export const ExportImageButton: FC<IPreviewRef> = ({ previewRef }) => {
   const onClick = () => {
     setIsLoading(true);
 
-    takeScreenshot()
-      .then(() => {
-        toast('Saved screenshot to Downloads');
-      })
-      .finally(() => {
-        setIsLoading(false);
+    const saveScreenshot = async () => {
+      const content = await takeScreenshot();
+
+      const encoder = new TextEncoder();
+      const data = encoder.encode(content);
+
+      await writeFile('file.png', data, {
+        baseDir: BaseDirectory.Download,
       });
+
+      throw new Error('Error');
+    };
+
+    toast.promise(saveScreenshot, {
+      loading: 'Saving screenshot...',
+      success: 'Screenshot saved to Downloads folder',
+      error: data => {
+        // eslint-disable-next-line no-console
+        console.log(data);
+        return 'Failed to save screenshot';
+      },
+      finally: () => {
+        setIsLoading(false);
+      },
+    });
   };
 
   return (
