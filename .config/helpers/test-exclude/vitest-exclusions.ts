@@ -33,4 +33,5 @@ export const vitestExclusions: string[] = [
 
   // Tauri
   './src-tauri/*',
+  './out/*',
 ];
