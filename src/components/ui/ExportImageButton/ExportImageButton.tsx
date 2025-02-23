@@ -26,11 +26,9 @@ export const ExportImageButton: FC<IPreviewRef> = ({ previewRef }) => {
       const encoder = new TextEncoder();
       const data = encoder.encode(content);
 
-      await writeFile('file.png', data, {
+      await writeFile(`screenshot.png`, data, {
         baseDir: BaseDirectory.Download,
       });
-
-      throw new Error('Error');
     };
 
     toast.promise(saveScreenshot, {
