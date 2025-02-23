@@ -3,6 +3,7 @@
 import cn from 'classnames';
 import type { FC } from 'react';
 
+import type { IPreviewRef } from '@/types';
 import { usePreviewSettings } from '@/zustand';
 
 import { PREVIEW_NODE_ID } from '@app/constants';
@@ -10,7 +11,7 @@ import { PREVIEW_NODE_ID } from '@app/constants';
 import { usePreview } from './Preview.hook';
 import styles from './Preview.module.scss';
 
-export const Preview: FC<unknown> = () => {
+export const Preview: FC<IPreviewRef> = ({ previewRef }) => {
   const items = usePreview();
   const { padding } = usePreviewSettings();
 
@@ -21,6 +22,7 @@ export const Preview: FC<unknown> = () => {
       style={{
         padding,
       }}
+      ref={previewRef}
     >
       {items}
     </article>
