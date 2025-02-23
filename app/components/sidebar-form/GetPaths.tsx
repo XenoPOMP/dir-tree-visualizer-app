@@ -1,13 +1,11 @@
-import { invoke } from '@tauri-apps/api/core';
 import { open } from '@tauri-apps/plugin-dialog';
-import { type FC, useEffect } from 'react';
+import type { FC } from 'react';
 
 import { Button } from '@/components/ui/kit';
-import { usePathsStore, usePreviewSettings } from '@/zustand';
+import { usePathsStore } from '@/zustand';
 
 export const GetPaths: FC<unknown> = () => {
-  const { set: setPaths, setRootFolder, rootFolder } = usePathsStore();
-  const { hideGitIgnored } = usePreviewSettings();
+  const { setRootFolder, rootFolder } = usePathsStore();
 
   const getPaths = () => {
     open({ directory: true }).then(data => {
@@ -18,29 +16,6 @@ export const GetPaths: FC<unknown> = () => {
       setRootFolder(data);
     });
   };
-
-  useEffect(() => {
-    if (!rootFolder) {
-      return;
-    }
-
-    invoke<string[]>('get_folder_tree', {
-      path: rootFolder,
-      hide_git_ignored: true,
-    }).then(data => {
-      const filtered = data
-        .map(d =>
-          d.replace(new RegExp(`^${rootFolder}`), '').replace(/^\//, ''),
-        )
-        .filter(i => i !== '')
-        .map(i => `./${i}`);
-
-      // eslint-disable-next-line no-console
-      console.log(filtered);
-
-      setPaths(data);
-    });
-  }, [hideGitIgnored, rootFolder]);
 
   return (
     <Button
