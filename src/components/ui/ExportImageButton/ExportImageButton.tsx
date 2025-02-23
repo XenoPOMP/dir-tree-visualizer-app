@@ -18,10 +18,11 @@ export const ExportImageButton: FC<IPreviewRef> = ({ previewRef }) => {
 
   const onClick = () => {
     const saveScreenshot = async () => {
+      // This is base64 string
       const content = await takeScreenshot('png');
+
       const withoutHead =
         content?.replace(/^data:image\/png;base64,/, '') ?? '';
-
       const data = toUint8Array(withoutHead);
 
       await writeFile(`screenshot.png`, data, {
