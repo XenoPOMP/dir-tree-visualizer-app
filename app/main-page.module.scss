@@ -1,1 +1,11 @@
 @import "src/styles/templates";
+
+section.sidebarFieldGroup {
+  .field {
+    @apply flex gap-[.8em];
+
+    input {
+      appearance: none;
+    }
+  }
+}

@@ -1,15 +1,14 @@
-'use client';
-
 import cn from 'classnames';
 import type { FC } from 'react';
 
 import { MainLayout } from '@/components/layout';
-import { Checkbox, Heading } from '@/components/ui/kit';
-import { usePreviewSettings } from '@/zustand';
+import { Heading } from '@/components/ui/kit';
+
+import parentStyles from '@app/main-page.module.scss';
+
+import { ChangePadding, IconSize, ShowGuides } from './sidebar-form';
 
 export const Sidebar: FC<unknown> = () => {
-  const { set, showFolderGuides } = usePreviewSettings();
-
   return (
     <MainLayout.Sidebar>
       <MainLayout.Header
@@ -18,17 +17,15 @@ export const Sidebar: FC<unknown> = () => {
         <Heading level={2}>Settings</Heading>
       </MainLayout.Header>
 
-      <section className={cn('flex flex-col gap-5 px-4 py-5 text-14')}>
-        <Checkbox
-          checked={showFolderGuides}
-          onChange={e => {
-            set({
-              showFolderGuides: e,
-            });
-          }}
-        >
-          Show folder guides
-        </Checkbox>
+      <section
+        className={cn(
+          'flex flex-col gap-5 p-4 text-14',
+          parentStyles.sidebarFieldGroup,
+        )}
+      >
+        <IconSize />
+        <ChangePadding />
+        <ShowGuides />
       </section>
     </MainLayout.Sidebar>
   );
