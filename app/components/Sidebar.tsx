@@ -11,6 +11,7 @@ import {
   Divider,
   IconSize,
   ResetSettings,
+  ShowGitIgnored,
   ShowGuides,
 } from './sidebar-form';
 
@@ -31,6 +32,7 @@ export const Sidebar: FC<unknown> = () => {
       >
         <IconSize />
         <ChangePadding />
+        <ShowGitIgnored />
         <ShowGuides />
 
         <Divider />

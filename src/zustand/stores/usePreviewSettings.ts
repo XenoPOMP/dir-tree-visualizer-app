@@ -4,6 +4,7 @@ export interface IDataSettings {
   folderIconSize: number;
   padding: number;
   showFolderGuides: boolean;
+  hideGitIgnored: boolean;
 }
 
 type OrPartial<T> = T | Partial<T>;
@@ -22,6 +23,7 @@ const defaults: IDataSettings = {
   folderIconSize: 16,
   padding: 24,
   showFolderGuides: true,
+  hideGitIgnored: true,
 };
 
 /** Setup preview image settings through all app. */
