@@ -1,6 +1,6 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "dir-tree-visualizer-app",
+  "productName": "Dir Tree Visualizer",
   "version": "0.1.0",
   "identifier": "ru.xeno.dir-tree-visualizer",
   "build": {
