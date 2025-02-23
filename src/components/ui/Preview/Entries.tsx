@@ -13,7 +13,7 @@ interface EntriesProps {
 }
 
 const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
-  const filterEntries = useCallback(
+  const filterAndSort = useCallback(
     (entries: FolderTree | undefined) => {
       if (!entries) {
         return;
@@ -46,7 +46,7 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
         folderCls,
       )}
     >
-      {Object.entries(filterEntries(entries) || {}).map(([key, value], idx) => {
+      {Object.entries(filterAndSort(entries) || {}).map(([key, value], idx) => {
         if (typeof value === 'object') {
           return (
             <div
@@ -56,7 +56,7 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
               <FolderLabel variant='folder'>{key.toString()}</FolderLabel>
 
               <Entries
-                entries={value}
+                entries={filterAndSort(value)}
                 hasIntend
               />
             </div>
