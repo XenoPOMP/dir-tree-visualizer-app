@@ -4,7 +4,7 @@ import { BaseDirectory, writeFile } from '@tauri-apps/plugin-fs';
 import toUint8Array from 'base64-to-uint8array';
 import cn from 'classnames';
 import { ImageDown } from 'lucide-react';
-import { type FC, useState } from 'react';
+import type { FC } from 'react';
 import { toast } from 'sonner';
 import useScreenshot from 'use-screenshot-hook';
 
@@ -12,17 +12,13 @@ import { Button, Loading } from '@/components/ui/kit';
 import type { IPreviewRef } from '@/types';
 
 export const ExportImageButton: FC<IPreviewRef> = ({ previewRef }) => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const { takeScreenshot } = useScreenshot({
+  const { takeScreenshot, isLoading } = useScreenshot({
     ref: previewRef,
   });
 
   const onClick = () => {
-    setIsLoading(true);
-
     const saveScreenshot = async () => {
-      const content = await takeScreenshot();
+      const content = await takeScreenshot('png');
       const withoutHead =
         content?.replace(/^data:image\/png;base64,/, '') ?? '';
 
@@ -40,9 +36,6 @@ export const ExportImageButton: FC<IPreviewRef> = ({ previewRef }) => {
         // eslint-disable-next-line no-console
         console.log(data);
         return 'Failed to save screenshot';
-      },
-      finally: () => {
-        setIsLoading(false);
       },
     });
   };
