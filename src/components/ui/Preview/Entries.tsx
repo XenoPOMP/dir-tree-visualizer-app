@@ -1,9 +1,12 @@
 'use client';
 
 import cn from 'classnames';
+import { orderBy } from 'natural-orderby';
 import { type FC, useCallback } from 'react';
+import type { ArrayType } from 'xenopomp-essentials';
 
 import { FolderLabel } from '@/components/ui';
+import type { SortPredicate } from '@/types';
 
 import type { FolderTree } from './Preview.hook';
 
@@ -27,24 +30,44 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
         ([key]) => key !== '',
       );
 
+      const sortAlphabetically: SortPredicate<
+        ArrayType<typeof filteredEntries>
+      > = ([name], [nextName]) => {
+        const ordered = orderBy(
+          [{ item: name }, { item: nextName }],
+          [v => v.item],
+          ['asc'],
+        ).map(v => v.item);
+
+        return ordered.at(0) === name ? -1 : 1;
+      };
+
+      const folders = filteredEntries
+        .filter(
+          ([_, value]) =>
+            (typeof value === 'string' && value === 'directory') ||
+            typeof value === 'object',
+        )
+        .sort(sortAlphabetically);
+
+      const files = filteredEntries
+        .filter(([_, value]) => typeof value === 'string' && value === 'file')
+        .sort(sortAlphabetically);
+
       // Form object from sorted entries
-      return Object.fromEntries(filteredEntries);
+      return Object.fromEntries([...folders, ...files]);
     },
     [entries],
   );
 
-  // const folderCls = 'flex flex-col gap-[calc(var(--p14)*0.3571428571)]';
-  // const folderCls = 'flex flex-col gap-[calc(var(--p14)*0.2857142857)]';
   const folderCls = '';
 
   return (
     <div
-      className={cn(
-        {
-          'ml-[calc(var(--p14)*1.5714285714)]': hasIntend,
-        },
-        folderCls,
-      )}
+      className={cn(folderCls)}
+      style={{
+        marginLeft: hasIntend ? '14px' : undefined,
+      }}
     >
       {Object.entries(filterAndSort(entries) || {}).map(([key, value], idx) => {
         if (typeof value === 'object') {
