@@ -4,10 +4,11 @@ import type { FC } from 'react';
 import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/kit';
-import { usePathsStore } from '@/zustand';
+import { usePathsStore, usePreviewSettings } from '@/zustand';
 
 export const RenderBtn: FC<unknown> = () => {
   const { rootFolder, set: setPaths } = usePathsStore();
+  const { hideGitIgnored } = usePreviewSettings();
 
   const handleClick = async () => {
     if (!rootFolder) {
@@ -17,7 +18,7 @@ export const RenderBtn: FC<unknown> = () => {
 
     invoke<string[]>('get_folder_tree', {
       path: rootFolder,
-      hide_git_ignored: true,
+      hideGitIgnored,
     }).then(data => {
       const filtered = data
         .map(d =>
