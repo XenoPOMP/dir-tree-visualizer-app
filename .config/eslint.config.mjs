@@ -1,3 +1,8 @@
 import xenopomp from 'eslint-config-xeno';
 
-export default xenopomp();
+export default xenopomp(
+  {},
+  {
+    ignores: ['src-tauri/*'],
+  },
+);
