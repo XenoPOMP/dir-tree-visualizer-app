@@ -11,7 +11,6 @@ import {
   Divider,
   GetPaths,
   IconSize,
-  RenderBtn,
   ResetSettings,
   ShowGitIgnored,
   ShowGuides,
@@ -37,7 +36,6 @@ export const Sidebar: FC<unknown> = () => {
         )}
       >
         <GetPaths />
-        <RenderBtn />
 
         <Divider />
 

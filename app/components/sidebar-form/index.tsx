@@ -5,4 +5,3 @@ export * from './Divider';
 export * from './ResetSettings';
 export * from './ShowGitIgnored.tsx';
 export * from './GetPaths.tsx';
-export * from './RenderBtn.tsx';
