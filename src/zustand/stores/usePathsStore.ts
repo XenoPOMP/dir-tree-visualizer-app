@@ -2,26 +2,19 @@ import type { Fn, SetState } from 'xenopomp-essentials';
 import { create } from 'zustand';
 
 export interface IPathsStore {
+  rootFolder?: string;
+  setRootFolder: (folder: string) => void;
   paths: string[];
   set: SetState<string[]>;
   clear: Fn<[], void>;
 }
 
 export const usePathsStore = create<IPathsStore>((set, get) => ({
-  paths: [
-    // './src/a/',
-    // './src/c/sigma.txt',
-    // './src/b/',
-    // './src/b/alpha/',
-    // './src/b/beta/',
-    // './src/c/content.md',
-    // './src/next.config.ts',
-    // './src/main/page.tsx',
-    // './src/main/app/page.tsx',
-    // './src/components/ui/Header.tsx',
-    // './src/package.json',
-    // './src/tests/',
-  ],
+  paths: [],
+  setRootFolder: f =>
+    set({
+      rootFolder: f,
+    }),
   clear: () =>
     set({
       paths: [],

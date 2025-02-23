@@ -1,28 +1,44 @@
+import { invoke } from '@tauri-apps/api/core';
 import { open } from '@tauri-apps/plugin-dialog';
-import type { FC } from 'react';
+import { type FC, useEffect } from 'react';
 
 import { Button } from '@/components/ui/kit';
-import { usePathsStore } from '@/zustand';
+import { usePathsStore, usePreviewSettings } from '@/zustand';
 
 export const GetPaths: FC<unknown> = () => {
-  const { set } = usePathsStore();
+  const { set: setPaths, setRootFolder, rootFolder } = usePathsStore();
+  const { hideGitIgnored } = usePreviewSettings();
 
-  const onClick = () => {
-    open();
+  const getPaths = () => {
+    open({ directory: true }).then(data => {
+      if (!data) {
+        return;
+      }
 
-    // invoke<string[]>('get_folder_tree', {
-    //   hide_git_ignored: true,
-    // }).then(data => {
-    //   console.log(data);
-    // });
+      setRootFolder(data);
+    });
   };
+
+  useEffect(() => {
+    if (!rootFolder) {
+      return;
+    }
+
+    invoke<string[]>('get_folder_tree', {
+      path: rootFolder,
+      hide_git_ignored: true,
+    }).then(data => {
+      setPaths(data);
+    });
+  }, [hideGitIgnored, rootFolder]);
 
   return (
     <Button
       variant='control'
       instant={false}
+      onClick={getPaths}
     >
-      Select folder
+      {rootFolder ?? 'Select folder'}
     </Button>
   );
 };
