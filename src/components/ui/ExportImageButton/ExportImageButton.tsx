@@ -1,6 +1,7 @@
 'use client';
 
 import { BaseDirectory, writeFile } from '@tauri-apps/plugin-fs';
+import toUint8Array from 'base64-to-uint8array';
 import cn from 'classnames';
 import { ImageDown } from 'lucide-react';
 import { type FC, useState } from 'react';
@@ -22,9 +23,10 @@ export const ExportImageButton: FC<IPreviewRef> = ({ previewRef }) => {
 
     const saveScreenshot = async () => {
       const content = await takeScreenshot();
+      const withoutHead =
+        content?.replace(/^data:image\/png;base64,/, '') ?? '';
 
-      const encoder = new TextEncoder();
-      const data = encoder.encode(content);
+      const data = toUint8Array(withoutHead);
 
       await writeFile(`screenshot.png`, data, {
         baseDir: BaseDirectory.Download,

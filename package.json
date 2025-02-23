@@ -49,6 +49,7 @@
     "@types/react-dom": "19.0.2",
     "autoprefixer": "10.4.16",
     "axios": ">=1.7.9",
+    "base64-to-uint8array": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
     "lodash.set": "^4.3.2",
