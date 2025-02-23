@@ -28,10 +28,20 @@ export const FolderLabel: VariableFC<
       {...props}
     >
       {variant && (
-        <div className={cn('text-preview-dark-icon')}>
-          {variant === 'folder' && <Folder size={folderIconSize} />}
-          {variant === 'file' && <FileText size={folderIconSize} />}
-        </div>
+        <>
+          {variant === 'folder' && (
+            <Folder
+              size={folderIconSize}
+              className={cn('text-preview-dark-icon')}
+            />
+          )}
+          {variant === 'file' && (
+            <FileText
+              size={folderIconSize}
+              className={cn('text-preview-dark-icon')}
+            />
+          )}
+        </>
       )}
 
       <span className={cn('text-[14px] leading-normal')}>{children}</span>

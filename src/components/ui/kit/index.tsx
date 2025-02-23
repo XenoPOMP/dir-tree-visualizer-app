@@ -13,3 +13,4 @@ export * from './Badge/Badge';
 export * from './AppIcon/AppIcon';
 export * from './Divider/Divider';
 export * from './Checkbox/Checkbox';
+export * from './CustomLink/CustomLink';

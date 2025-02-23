@@ -18,7 +18,11 @@ export const Preview: FC<IPreviewRef> = ({ previewRef }) => {
   return (
     <article
       id={PREVIEW_NODE_ID}
-      className={cn('whitespace-break-spaces', styles.previewBlock)}
+      className={cn(
+        'whitespace-break-spaces',
+        styles.previewBlock,
+        'bg-primary-bg text-primary-font',
+      )}
       style={{
         padding,
       }}
