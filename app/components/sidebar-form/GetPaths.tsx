@@ -23,7 +23,7 @@ export const GetPaths: FC<unknown> = () => {
       instant={false}
       onClick={getPaths}
     >
-      {rootFolder ?? 'Select folder'}
+      <span className='truncate'>{rootFolder ?? 'Select folder'}</span>
     </Button>
   );
 };
