@@ -1,10 +1,12 @@
 'use client';
 
+import cn from 'classnames';
 import { orderBy } from 'natural-orderby';
 import { type FC, useCallback } from 'react';
 import type { ArrayType } from 'xenopomp-essentials';
 
 import { FolderLabel } from '@/components/ui';
+import { Divider } from '@/components/ui/kit';
 import type { SortPredicate } from '@/types';
 
 import type { FolderTree } from './Preview.hook';
@@ -68,7 +70,12 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
       {Object.entries(filterAndSort(entries) || {}).map(([key, value], idx) => {
         if (typeof value === 'object') {
           return (
-            <div key={`entry-${idx}`}>
+            <div
+              key={`entry-${idx}`}
+              className={cn('relative overflow-hidden')}
+            >
+              <Divider />
+
               <FolderLabel variant='folder'>{key.toString()}</FolderLabel>
 
               <Entries
