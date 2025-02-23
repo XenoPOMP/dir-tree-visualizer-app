@@ -1,2 +1,2 @@
-export * from './Collapse';
+export * from './Collapse.tsx';
 export * from './Body';

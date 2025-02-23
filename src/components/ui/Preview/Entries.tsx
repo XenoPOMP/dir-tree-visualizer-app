@@ -6,7 +6,7 @@ import { type FC, useCallback } from 'react';
 import type { ArrayType } from 'xenopomp-essentials';
 
 import { FolderLabel } from '@/components/ui';
-import { Divider } from '@/components/ui/kit';
+import { Accordion, Divider } from '@/components/ui/kit';
 import type { SortPredicate } from '@/types';
 
 import type { FolderTree } from './Preview.hook';
@@ -72,16 +72,25 @@ const Entries: FC<EntriesProps> = ({ entries, hasIntend }) => {
           return (
             <div
               key={`entry-${idx}`}
-              className={cn('relative overflow-hidden')}
+              className={cn('relative')}
             >
               <Divider />
 
-              <FolderLabel variant='folder'>{key.toString()}</FolderLabel>
+              <Accordion>
+                <Accordion.Collapse
+                  className={cn('gap-[.2em]')}
+                  noChevron
+                >
+                  <FolderLabel variant='folder'>{key.toString()}</FolderLabel>
+                </Accordion.Collapse>
 
-              <Entries
-                entries={filterAndSort(value)}
-                hasIntend
-              />
+                <Accordion.Body>
+                  <Entries
+                    entries={filterAndSort(value)}
+                    hasIntend
+                  />
+                </Accordion.Body>
+              </Accordion>
             </div>
           );
         }

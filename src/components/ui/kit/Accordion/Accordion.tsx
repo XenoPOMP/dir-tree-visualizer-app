@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { type VariableFC, jsxDotNotation } from 'xenopomp-essentials';
 
 import { AccordionBody, AccordionCollapse } from './components';
+import styles from './components/Accordion.module.scss';
 
 const InternalAccordion: VariableFC<'details', unknown> = ({
   className,
@@ -10,7 +11,7 @@ const InternalAccordion: VariableFC<'details', unknown> = ({
 }) => {
   return (
     <details
-      className={cn('group', className)}
+      className={cn('group', styles.accordion, className)}
       {...props}
     >
       {children}

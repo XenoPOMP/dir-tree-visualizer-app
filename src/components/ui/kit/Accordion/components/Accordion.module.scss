@@ -1,0 +1,5 @@
+details.accordion {
+  & summary::-webkit-details-marker {
+    display: none;
+  }
+}
