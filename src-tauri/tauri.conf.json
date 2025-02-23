@@ -9,13 +9,6 @@
     "beforeDevCommand": "yarn dev",
     "beforeBuildCommand": "yarn build"
   },
-  "tauri": {
-    "allowList": {
-      "fs": {
-        "writeFile": true
-      }
-    }
-  },
   "app": {
     "windows": [
       {
