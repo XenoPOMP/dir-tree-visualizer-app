@@ -30,4 +30,7 @@ export const vitestExclusions: string[] = [
   'mdx-components.tsx',
 
   './src/components/ui/DesignSystem/*',
+
+  // Tauri
+  './src-tauri/*',
 ];
