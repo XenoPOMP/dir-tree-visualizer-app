@@ -19,7 +19,14 @@ export const RenderBtn: FC<unknown> = () => {
       path: rootFolder,
       hide_git_ignored: true,
     }).then(data => {
-      setPaths(data);
+      const filtered = data
+        .map(d =>
+          d.replace(new RegExp(`^${rootFolder}`), '').replace(/^\//, ''),
+        )
+        .filter(i => i !== '')
+        .map(i => `./${i}`);
+
+      setPaths(filtered);
     });
   };
 
