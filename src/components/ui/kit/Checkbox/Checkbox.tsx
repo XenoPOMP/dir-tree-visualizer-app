@@ -13,13 +13,12 @@ export const Checkbox: VariableFC<
     <Field
       className={cn(
         'select-none',
-        'text-20',
-        'flex cursor-pointer items-center gap-4 leading-[1em]',
+        'flex cursor-pointer items-center gap-[.8em] leading-[1em]',
       )}
     >
       <HUI_Checkbox
         className={cn(
-          'bg-check-bg group block size-[1em] rounded data-[checked]:bg-accent',
+          'bg-check-bg group block size-[1em] rounded-[.2em] data-[checked]:bg-accent',
           'transition-colors',
           'flex-center',
           className,

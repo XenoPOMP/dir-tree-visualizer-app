@@ -4,11 +4,11 @@ import cn from 'classnames';
 import type { FC } from 'react';
 
 import { MainLayout } from '@/components/layout';
-import { Heading } from '@/components/ui/kit';
+import { Checkbox, Heading } from '@/components/ui/kit';
 import { usePreviewSettings } from '@/zustand';
 
 export const Sidebar: FC<unknown> = () => {
-  const set = usePreviewSettings();
+  const { set, showFolderGuides } = usePreviewSettings();
 
   return (
     <MainLayout.Sidebar>
@@ -18,7 +18,18 @@ export const Sidebar: FC<unknown> = () => {
         <Heading level={2}>Settings</Heading>
       </MainLayout.Header>
 
-      <section className={cn('px-4 py-5 text-14')}>Sus</section>
+      <section className={cn('flex flex-col gap-5 px-4 py-5 text-14')}>
+        <Checkbox
+          checked={showFolderGuides}
+          onChange={e => {
+            set({
+              showFolderGuides: e,
+            });
+          }}
+        >
+          Show folder guides
+        </Checkbox>
+      </section>
     </MainLayout.Sidebar>
   );
 };
