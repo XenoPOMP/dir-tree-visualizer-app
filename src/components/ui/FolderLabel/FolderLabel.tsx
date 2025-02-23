@@ -24,6 +24,7 @@ export const FolderLabel: VariableFC<
         'select-none',
         className,
       )}
+      data-testid={variant ?? 'none'}
       {...props}
     >
       {variant && (
