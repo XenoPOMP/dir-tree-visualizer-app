@@ -13,7 +13,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "tauri": "tauri dev",
+    "tauri:dev": "tauri dev",
     "tauri:build": "tauri build",
     "unit:test": "vitest -c .config/vitest.config.ts",
     "coverage": "vitest -c .config/vitest.config.ts run --coverage",
