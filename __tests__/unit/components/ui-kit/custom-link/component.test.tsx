@@ -6,6 +6,6 @@ import { assertRendering } from '@test/assets';
 
 describe('CustomLink component', () => {
   test('It renders', () => {
-    assertRendering(<CustomLink />);
+    assertRendering(<CustomLink href='/' />);
   });
 });
