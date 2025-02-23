@@ -7,7 +7,7 @@ import { DEFAULT_SELECTOR, use<%= h.changeCase.pascalCase(name) %> } from '@/zus
 
 import { assertHookRendering } from '@test/assets';
 
-describe('SettingsStore', () => {
+describe('<%= h.changeCase.pascalCase(name) %>', () => {
   test('It renders', () => {
     assertHookRendering(() => use<%= h.changeCase.pascalCase(name) %>(DEFAULT_SELECTOR));
   });
